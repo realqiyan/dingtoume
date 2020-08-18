@@ -94,6 +94,24 @@
       <version>3.3.2</version>
     </dependency>
 
+<!--    <dependency>-->
+<!--      <groupId>com.baomidou</groupId>-->
+<!--      <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--      <version>3.3.2</version>-->
+<!--    </dependency>-->
+
+    <dependency>
+      <groupId>io.protostuff</groupId>
+      <artifactId>protostuff-core</artifactId>
+      <version>1.7.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.protostuff</groupId>
+      <artifactId>protostuff-runtime</artifactId>
+      <version>1.7.2</version>
+    </dependency>
+
   </dependencies>
 
   <build>
