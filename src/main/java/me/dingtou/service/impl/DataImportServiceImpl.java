@@ -94,6 +94,14 @@ public class DataImportServiceImpl implements DataImportService {
             });
         }
 
+        // 基金组合交易明细
+        List<TradeCalendar> tradeCalendarList = data.getTradeCalendarList();
+        if(null != tradeCalendarList){
+            tradeCalendarList.stream().forEach(e -> {
+                tradeCalendarMapper.insert(e);
+            });
+        }
+
         // 交易记录
         List<FundOrder> fundOrderList = data.getFundOrderList();
         if (null != fundOrderList) {

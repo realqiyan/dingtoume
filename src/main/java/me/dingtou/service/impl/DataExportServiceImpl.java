@@ -22,6 +22,8 @@ public class DataExportServiceImpl implements DataExportService {
     private FundGroupDetailMapper fundGroupDetailMapper;
     @Autowired
     private FundOrderMapper fundOrderMapper;
+    @Autowired
+    private TradeCalendarMapper tradeCalendarMapper;
 
     @Override
     public UserFundGroupData exportAll(long userId) {
@@ -43,8 +45,9 @@ public class DataExportServiceImpl implements DataExportService {
         List<UserFundGroup> userFundGroups = userFundGroupMapper.selectByExample(groupQuery);
         userFundGroupData.setUserFundGroupList(userFundGroups);
 
-        // 基金组合明细
+
         if (!userFundGroups.isEmpty()) {
+            // 基金组合明细
             FundGroupDetailExample detailQuery = new FundGroupDetailExample();
             List<Integer> fundGroupIds = userFundGroups.stream()
                     .map(e -> e.getFundGroupId())
@@ -52,6 +55,12 @@ public class DataExportServiceImpl implements DataExportService {
             detailQuery.createCriteria().andFundGroupIdIn(fundGroupIds);
             List<FundGroupDetail> fundGroupDetails = fundGroupDetailMapper.selectByExample(detailQuery);
             userFundGroupData.setFundGroupDetailList(fundGroupDetails);
+
+            // 基金组合交易明细
+            TradeCalendarExample calendarQuery = new TradeCalendarExample();
+            calendarQuery.createCriteria().andFundGroupIdIn(fundGroupIds);
+            List<TradeCalendar> tradeCalendars = tradeCalendarMapper.selectByExample(calendarQuery);
+            userFundGroupData.setTradeCalendarList(tradeCalendars);
         }
 
         // 交易记录

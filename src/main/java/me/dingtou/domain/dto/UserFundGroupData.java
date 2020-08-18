@@ -20,6 +20,7 @@ public class UserFundGroupData {
     private List<FundGroupDetail> fundGroupDetailList;
     private List<FundOrder> fundOrderList;
     private List<FundInfo> fundInfoList;
+    private List<TradeCalendar> tradeCalendarList;
 
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
@@ -59,6 +60,14 @@ public class UserFundGroupData {
 
     public List<FundInfo> getFundInfoList() {
         return fundInfoList;
+    }
+
+    public void setTradeCalendarList(List<TradeCalendar> tradeCalendarList) {
+        this.tradeCalendarList = tradeCalendarList;
+    }
+
+    public List<TradeCalendar> getTradeCalendarList() {
+        return tradeCalendarList;
     }
 
     /**
