@@ -1,3 +1,6 @@
+# 推荐使用dingtou v2
+> https://github.com/realqiyan/dingtou
+
 # 基金定投策略
 > 价值平均定投策略，自动计算场外基金买入卖出金额。
 
